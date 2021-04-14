@@ -21,3 +21,6 @@ pidof kdeconnectd || kdeconnect-cli -l &
 # Set wallpaper
 feh $SRC_DIR/wallpaper --bg-fill &
 
+# dwmblocks
+pkill dwmblocks; $SRC_DIR/dwmblocks/dwmblocks &
+
