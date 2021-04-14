@@ -27,17 +27,16 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "jetbrains-webstorm", NULL,                   NULL,                    1 << 2,       0,           -1 },
-	{ "jetbrains-webstorm", "jetbrains-webstorm",   "win0",                  1 << 2,       1,           -1 },
-	{ "Code",               "code",                 NULL,                    1 << 2,       0,           -1 },
+	/* class                instance                title                    tags mask     isfloating   monitor */
+	{ "jetbrains-webstorm", NULL,                   NULL,                    1 << 2,       0,             -1 },
+	{ "jetbrains-webstorm", "jetbrains-webstorm",   "win0",                  1 << 2,       1,             -1 },
+	{ "Code",               "code",                 NULL,                    1 << 2,       0,             -1 },
 
-	{ "Spotify",            "spotify",              NULL,                    1 << 8,       0,           -1 },
-	{ "Brave-browser",      NULL,                   NULL,                    1 << 1,       0,           -1 },
+	{ NULL,                 "spotify",              NULL,                    1 << 8,       0,             -1 },
+	{ "Brave-browser",      NULL,                   NULL,                    1 << 1,       0,             -1 },
 
-	{ "Pavucontrol",        NULL,                   NULL,                    1 << 8,       1,           -1 },
-	{ "mpv",                NULL,                   NULL,                    0,            1,           -1 },
-	{ "st-256color",        NULL,                   "ncpamixer",             0,            1,           -1 },
+	{ "Pavucontrol",        NULL,                   NULL,                    1 << 8,       1,             -1 },
+	{ "mpv",                NULL,                   NULL,                    0,            1,             -1 },
 };
 
 /* layout(s) */
@@ -47,8 +46,8 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "",          tile },    /* first entry is default */
-	{ "类",         NULL },    /* no layout function means floating behavior */
+	{ "",           tile },    /* first entry is default */
+	{ "类",          NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
