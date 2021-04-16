@@ -24,3 +24,6 @@ feh $SRC_DIR/wallpaper --bg-fill &
 # dwmblocks
 pkill dwmblocks; $SRC_DIR/dwmblocks/dwmblocks &
 
+# low battery notifier
+pidof -x 'low-battery-notifier' || $SRC_DIR/scripts/low-battery-notifier.sh &
+
