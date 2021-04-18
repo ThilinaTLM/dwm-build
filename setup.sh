@@ -30,7 +30,6 @@ case $1 in
     c|clean)
         echo "Cleaning"
         cd $DIR/src
-        sudo cp config.def.h config.h
         make clean
         cd $DIR/dwmblocks
         make clean
