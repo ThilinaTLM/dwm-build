@@ -45,11 +45,30 @@ mod_bat () {
 
     # Get the current battery capacity
     read -r cap < "${cap_file}"
-    printf -v res '%b%3d%b' "${res}" "${cap}" "${suf}"
+    printf -v res '%b%2d%b' "${res}" "${cap}" "${suf}"
   done
 
-  # In res, info for each battery is separated by a space, including a
+  # In res, info for each battery is separated by a space, includinga
   # leading space before the first battery info, so remove it
   printf '%b' "${res:1}"
 }
 
+mod_bl () {
+  # Customizable configuration constants
+  local -r DEFAULT_PRE=' '
+  local -r DEFAULT_SUF='%'
+
+  local -r pre="${1-${DEFAULT_PRE}}"
+  local -r suf="${2-${DEFAULT_SUF}}"
+
+  local bl_file bl max_bl_file max_bl
+
+  bl_file="$(find /sys/class/backlight/*/brightness | head -n 1)"
+  max_bl_file="$(dirname "${bl_file}")/max_brightness"
+  read -r bl < "${bl_file}"
+  read -r max_bl < "${max_bl_file}"
+  # Use printf to do floating point arithmetic
+  printf '%b%2.0f%b' "${pre}" "$((bl * 1000 / max_bl))e-1" "${suf}"
+}
+
+mod_bl; printf "  "; mod_bat
